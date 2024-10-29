@@ -2,18 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="/Images/Capsule Keeper Favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+           Moonstone : '#21B0C6',
+           Grape : '#7F2CB3',
+           Plum : '#E296D8',
+           Vanilla : '#FCE7A9',
+           Blue Violet : '#7F2AEE',
+          }
+        }
+      }
+    }
+  </script>
   <title>Capsule Keeper</title>
   <link rel="stylesheet" href="./assets/reset.css">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
   <!--content goes here -->
-
   <!-- Header and Navigation-->
+<header>
+    <h1 class="text-3xl font-bold">Capsule Keeper</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="#sample">About Us</a></li>
+        <li><a href="#sample">Create a Capsule</a></li>
+        <li><a href="#sample">Sample</a></li>
+    </ul>
+</nav>
   <!-- Website Description-->
+   <section>
+    <h2>About Us</h2>
+    <p>Our virtual time capsule allows you to securely store cherished memories, including photos and text entries, to be revisited on a future date. Whether it’s personal milestones, unforgettable moments, or messages to your future self, this digital keepsake preserves your stories for years to come.</p>
+   </section>
   <!-- "Create New" Button-->
   <!-- User Input - Images-->
+
    <div class="upload-section"></div>
     <h2 class="text-xl font-bold mb-4">upload your images</h2>
     <input type="file" id="imageUpload" accept="image/*" multiple class="mb-4">
@@ -63,7 +93,6 @@
   </script>
 
 
-  <!-- User Input - Text-->
   
   <script src="./assets/script.js"></script>
 </body>
