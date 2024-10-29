@@ -43,7 +43,56 @@
    </section>
   <!-- "Create New" Button-->
   <!-- User Input - Images-->
-  <!-- User Input - Text--
+
+   <div class="upload-section"></div>
+    <h2 class="text-xl font-bold mb-4">upload your images</h2>
+    <input type="file" id="imageUpload" accept="image/*" multiple class="mb-4">
+    <div id="imagePreview" class="grid grid-cols-3 gap-4"></div>
+  </div>
+
+
+  <div class="caption-section mt-4">
+    <h2 class="text-xl font-bold mb-4">describe your memory below</h2>
+    <input type="text" id="captionInput" placeholder="describe your memory here" class="w-full p-2 border border-gray-300 rounded">
+  </div>
+
+
+  <button id="submitBtn" class="mt-4 p-2 bg-purple-500 text-white rounded">submit</button>
+
+
+  <script>
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+      const files = event.target.files;
+      const previewContainer = document.getElementById('imagePreview');
+      previewContainer.innerHTML = '';
+
+
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.classList.add('w-full', 'h-auto');
+          previewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+      const images = document.getElementById('imagePreview').innerHTML;
+      const caption = document.getElementById('captionInput').value;
+
+
+      // Save the images and caption to the website
+      // This is a placeholder for the actual save functionality
+      console.log('Images:', images);
+      console.log('Caption:', caption);
+    });
+  </script>
+
+
   
   <script src="./assets/script.js"></script>
 </body>
