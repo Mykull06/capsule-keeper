@@ -111,3 +111,13 @@ cursor: pointer;
 .hidden {
 display: none; /* Class to hide modal */
 }
+
+.fun-fact-label{
+background-color: white;
+padding: 1.5rem;
+margin: 1.5rem;
+border-radius: 0.5rem;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /*Yellow shadow */
+max-width: 400px; /* Decreased width for a smaller container */
+text-align: center; /* Center-align text */
+}
