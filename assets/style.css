@@ -57,6 +57,36 @@ font-weight: 600;
 margin-bottom: 1rem;
 white-space: nowrap; /* Prevents text wrapping */
 }
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Create New Content Button Styling */
+#create-new-content {
+  background-color: white; /* Matches the upload container */
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /* Pink shadow */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Hover Effect */
+#create-new-content:hover {
+  background-color: #f3f3f3;
+}
+
+
 /* Paragraph styles */
 .about-container p {
 color: #4A4A4A; /* Dark gray for better readability */
@@ -120,4 +150,33 @@ border-radius: 0.5rem;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /*Yellow shadow */
 max-width: 400px; /* Decreased width for a smaller container */
 text-align: center; /* Center-align text */
+}
+/* Caption container styling */
+.caption-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /* Yellow shadow */
+  border-radius: 0.5rem;
+  max-width: 500px;
+  margin: 2rem auto; /* Center container */
+  text-align: center;
+}
+
+/* Heading styling */
+.caption-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Input styling */
+.caption-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  text-align: center;
 }
