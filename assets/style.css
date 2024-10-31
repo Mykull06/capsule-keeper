@@ -25,6 +25,7 @@ body {
   header nav ul {
     display: flex;
     gap: 15px;
+    font-weight: bold;
   }
   
   header nav a {
@@ -36,3 +37,50 @@ body {
   header nav a:hover {
     color: #E296D8; /* Plum */
   }
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height to center in the middle */
+  margin: 0; 
+}
+
+
+.about-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /*Yellow shadow */
+  max-width: 400px; /* Decreased width for a smaller container */
+  text-align: center; /* Center-align text */
+}
+
+
+.about-container h2 {
+  font-size: 1.5rem; /* Slightly smaller font size */
+  font-weight: 600;
+  margin-bottom: 1rem;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Paragraph styles */
+.about-container p {
+  color: #4a4a4a; /* Dark gray for better readability */
+  font-size: 0.875rem; /* Smaller text */
+  line-height: 1.5;
+}
+.upload-container {
+  background-color: white; /* White background for the upload container */
+  padding: 2rem; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /*Yellow shadow */
+  border-radius: 0.5rem; 
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+.upload-container h2 {
+  text-align: center; 
+  margin-bottom: 1rem; 
+}
+
+
