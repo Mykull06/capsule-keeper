@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <header>
-  <h1 class="text-3xl font-bold font-silkscreen flex items-center"> <!-- Apply Silkscreen font only here -->
+  <h1 class="text-3xl font-bold font-silkscreen flex items-center"> 
     <img src="./Images/Capsule Keeper Logo.png" alt="Capsule Keeper Icon" style="height: 40px; margin-right: 10px;">
     Capsule Keeper
   </h1>
@@ -68,7 +68,7 @@
 </section>
 <body>
   <!-- "Create New" Button-->
-    <button id="create-new-content">create new content</button>
+    <button id="create-new-content">Create New Content</button>
     <div id="modal" class="modal">
       <div class="modal-content">
           <span id="close-modal" class="close">&times;</span>
@@ -82,19 +82,21 @@
   <div class="upload-background">
     <section class="upload-section">
       <div class="upload-container">
-        <h2 class="text-xl font-bold mb-4">📤 Upload Your Images 📤</h2>
-
+        <h2 class="text-xl font-bold mb-4 font-silkscreen">🎥 Preview 🎥</h2> 
         <div id="imagePreview" class="grid grid-cols-3 gap-4"></div>
       </div>
     </section>
+    
   </div>
   <!--User Input - Text-->
-  <div class="caption-section mt-4">
-    <h2 class="text-xl font-bold mb-4">describe your memory below</h2>
-    <input type="text" id="captionInput" placeholder="describe your memory here" class="w-full p-2 border border-gray-300 rounded">
-  </div>
-  <!--Submit Button-->
-  <button id="submitBtn" class="mt-4 p-2 bg-purple-500 text-white rounded">Submit</button>
+  <div class="caption-container">
+    <h2 class="caption-heading">Describe Your Memory Below</h2>
+    <input type="text" id="captionInput" placeholder="Describe your memory here" class="caption-input">
+    
+    <div class="submit-container">
+      <button id="submitBtn" class="mt-4 p-2 bg-purple-500 text-white rounded">Submit</button>
+    </div>
+    
   <script src="./assets/script.js"></script>
   <script src="./assets/date.js"></script>
 </body>
