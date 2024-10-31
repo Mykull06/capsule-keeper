@@ -21,6 +21,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+ // Handle image upload
+ imageUpload.addEventListener('change', (event) => {
+    const files = event.target.files;
+    imagePreview.innerHTML = ''; // Clear previous previews
+
+    Array.from(files).forEach(file => {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const imgContainer = document.createElement('div');
+            imgContainer.classList.add('img-container');
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            imgContainer.appendChild(img);
+
+            // Create a description input
+            const descriptionInput = document.createElement('input');
+            descriptionInput.type = 'text';
+            descriptionInput.placeholder = 'Describe this image';
+            imgContainer.appendChild(descriptionInput);
+
+            imagePreview.appendChild(imgContainer);
+        };
+
+        reader.readAsDataURL(file);
+    });
+});
+
+
 // Event listener for when the file input changes (i.e., when images are uploaded)
 document.getElementById('imageUpload').addEventListener('change', function(event) {
     // Get the files from the input element
