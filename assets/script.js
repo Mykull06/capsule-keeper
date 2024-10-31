@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const imagePreview = document.getElementById('imagePreview');
     const submitButton = document.getElementById('submitBtn'); // Use consistent casing
 
+// test
+
     // Open the modal
     openModalButton.addEventListener('click', () => {
         modal.style.display = 'block';
