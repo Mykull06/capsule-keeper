@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalButton = document.getElementById('create-new-content');
     const modal = document.getElementById('modal');
     const closeModalButton = document.getElementById('close-modal');
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const submitButton = document.getElementById('submitBtn'); // Use consistent casing
+
+// test
 
     // Open the modal
     openModalButton.addEventListener('click', () => {
@@ -19,36 +24,45 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     });
-});
 
- // Handle image upload
- imageUpload.addEventListener('change', (event) => {
-    const files = event.target.files;
-    imagePreview.innerHTML = ''; // Clear previous previews
+    // Close the modal when the submit button is clicked
+    submitButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+        // Optionally, handle form submission logic here
+    });
 
-    Array.from(files).forEach(file => {
-        const reader = new FileReader();
+    // Handle image upload
+    imageUpload.addEventListener('change', (event) => {
+        const files = event.target.files;
+        imagePreview.innerHTML = ''; // Clear previous previews
 
-        reader.onload = (e) => {
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('img-container');
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
 
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            imgContainer.appendChild(img);
+            reader.onload = (e) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('img-container');
 
-            // Create a description input
-            const descriptionInput = document.createElement('input');
-            descriptionInput.type = 'text';
-            descriptionInput.placeholder = 'Describe this image';
-            imgContainer.appendChild(descriptionInput);
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                imgContainer.appendChild(img);
 
-            imagePreview.appendChild(imgContainer);
-        };
+                // Create a description input
+                const descriptionInput = document.createElement('input');
+                descriptionInput.type = 'text';
+                descriptionInput.placeholder = 'Describe this image';
+                imgContainer.appendChild(descriptionInput);
 
-        reader.readAsDataURL(file);
+                imagePreview.appendChild(imgContainer);
+            };
+
+            reader.readAsDataURL(file);
+        });
     });
 });
+
+
+    
 
 
 // Event listener for when the file input changes (i.e., when images are uploaded)
