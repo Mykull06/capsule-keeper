@@ -148,3 +148,41 @@ document.getElementById('submitBtn').addEventListener('click', function() {
     console.log('Images:', images); // Log the HTML of the images for debugging
     console.log('Caption:', caption); // Log the caption for debugging
 });
+// Function to save caption to local storage
+function saveCaptionToLocalStorage(caption) {
+    // Save the caption to local storage
+    localStorage.setItem('caption', caption);
+}
+
+// Function to load caption from local storage and display it on page load
+function loadCaptionFromLocalStorage() {
+    // Retrieve the caption from local storage
+    const caption = localStorage.getItem('caption');
+    // If a caption exists, set it to the caption input field
+    if (caption) {
+        document.getElementById('captionInput').value = caption;
+    }
+}
+
+// Call the function to load the caption from local storage when the page loads
+window.onload = function() {
+    loadImagesFromLocalStorage();
+    loadCaptionFromLocalStorage();
+};
+
+// Update the submit button event listener to save the caption to local storage
+document.getElementById('submitBtn').addEventListener('click', function() {
+    // Retrieve the inner HTML of the preview container (this contains the images)
+    const images = document.getElementById('imagePreview').innerHTML;
+
+    // Get the value of the caption input field
+    const caption = document.getElementById('captionInput').value;
+
+    // Save the caption to local storage
+    saveCaptionToLocalStorage(caption);
+
+    // Placeholder to save the images and caption to the website
+    // (You would typically make an API call here or update the UI accordingly)
+    console.log('Images:', images); // Log the HTML of the images for debugging
+    console.log('Caption:', caption); // Log the caption for debugging
+});
