@@ -36,27 +36,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const files = event.target.files;
         imagePreview.innerHTML = ''; // Clear previous previews
 
-        Array.from(files).forEach(file => {
+        Array.from(files).forEach((file, index) => {
             const reader = new FileReader();
-
+        
             reader.onload = (e) => {
                 const imgContainer = document.createElement('div');
                 imgContainer.classList.add('img-container');
-
+        
+                // Create the image element and set its source
                 const img = document.createElement('img');
                 img.src = e.target.result;
                 imgContainer.appendChild(img);
-
+        
                 // Create a description input
                 const descriptionInput = document.createElement('input');
                 descriptionInput.type = 'text';
                 descriptionInput.placeholder = 'Describe this image';
                 imgContainer.appendChild(descriptionInput);
-
+        
+                // Event listener to save the description to localStorage
+                descriptionInput.addEventListener('input', () => {
+                    // Save description with a unique key, e.g., 'imageDescription_0'
+                    localStorage.setItem(`imageDescription_${index}`, descriptionInput.value);
+                });
+        
+                // Append the image container to the preview area
                 imagePreview.appendChild(imgContainer);
             };
-
-            reader.readAsDataURL(file);
+        
+            reader.readAsDataURL(file); // Read the image file as data URL
         });
     });
 });
@@ -134,55 +142,3 @@ function loadImagesFromLocalStorage() {
 }
 // Call the function to load images from local storage when the page loads
 window.onload = loadImagesFromLocalStorage;
-
-// Add an event listener to the submit button for when it is clicked
-document.getElementById('submitBtn').addEventListener('click', function() {
-    // Retrieve the inner HTML of the preview container (this contains the images)
-    const images = document.getElementById('imagePreview').innerHTML;
-
-    // Get the value of the caption input field
-    const caption = document.getElementById('captionInput').value;
-
-    // Placeholder to save the images and caption to the website
-    // (You would typically make an API call here or update the UI accordingly)
-    console.log('Images:', images); // Log the HTML of the images for debugging
-    console.log('Caption:', caption); // Log the caption for debugging
-});
-// Function to save caption to local storage
-function saveCaptionToLocalStorage(caption) {
-    // Save the caption to local storage
-    localStorage.setItem('caption', caption);
-}
-
-// Function to load caption from local storage and display it on page load
-function loadCaptionFromLocalStorage() {
-    // Retrieve the caption from local storage
-    const caption = localStorage.getItem('caption');
-    // If a caption exists, set it to the caption input field
-    if (caption) {
-        document.getElementById('captionInput').value = caption;
-    }
-}
-
-// Call the function to load the caption from local storage when the page loads
-window.onload = function() {
-    loadImagesFromLocalStorage();
-    loadCaptionFromLocalStorage();
-};
-
-// Update the submit button event listener to save the caption to local storage
-document.getElementById('submitBtn').addEventListener('click', function() {
-    // Retrieve the inner HTML of the preview container (this contains the images)
-    const images = document.getElementById('imagePreview').innerHTML;
-
-    // Get the value of the caption input field
-    const caption = document.getElementById('captionInput').value;
-
-    // Save the caption to local storage
-    saveCaptionToLocalStorage(caption);
-
-    // Placeholder to save the images and caption to the website
-    // (You would typically make an API call here or update the UI accordingly)
-    console.log('Images:', images); // Log the HTML of the images for debugging
-    console.log('Caption:', caption); // Log the caption for debugging
-});
