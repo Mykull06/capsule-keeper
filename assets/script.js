@@ -51,8 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Create a description input
                 const descriptionInput = document.createElement('input');
                 descriptionInput.type = 'text';
-                descriptionInput.placeholder = 'Describe this image';
-                imgContainer.appendChild(descriptionInput);
         
                 // Event listener to save the description to localStorage
                 descriptionInput.addEventListener('input', () => {
