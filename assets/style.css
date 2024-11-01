@@ -195,3 +195,15 @@ header nav a:hover {
   text-align: center;
 }
 
+.memory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /* Yellow shadow */
+  border-radius: 0.5rem;
+  max-width: 500px;
+  margin: 2rem auto; /* Center container */
+  text-align: center;
+}
