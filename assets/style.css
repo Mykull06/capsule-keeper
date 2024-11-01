@@ -5,7 +5,14 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   color: #333;
+  margin: 0; /* Remove default body margin */
 }
+
+/* Standard spacing for sections */
+.section {
+  margin: 20px 0; /* Standard vertical spacing */
+}
+
 /* Header Styling */
 header {
   display: flex;
@@ -36,121 +43,128 @@ header nav a {
 header nav a:hover {
   color: #E296D8; /* Plum */
 }
+
 .about-section {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh; /* Full viewport height to center in the middle */
-margin: 0; 
-}
-.about-container {
-background-color: white;
-padding: 1.5rem;
-border-radius: 0.5rem;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /*Yellow shadow */
-max-width: 400px; /* Decreased width for a smaller container */
-text-align: center; /* Center-align text */
-}
-.about-container h2 {
-font-size: 1.5rem; /* Slightly smaller font size */
-font-weight: 600;
-margin-bottom: 1rem;
-white-space: nowrap; /* Prevents text wrapping */
-}
-.button-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
+  flex-direction: column; /* Ensure children stack vertically */
+  align-items: center; /* Center-align items */
+  padding: 20px; /* Optional: Add padding for spacing */
 }
 
-/* Create New Content Button Styling */
-#create-new-content {
-  background-color: white; /* Matches the upload container */
-  padding: 1.5rem 2rem;
+.about-container {
+  background-color: white;
+  padding: 1.5rem;
   border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /* Pink shadow */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /* Yellow shadow */
+  max-width: 400px; /* Container width */
+  text-align: center; /* Center-align text */
+  margin-bottom: 20px; /* Add space below the about container */
 }
 
-/* Hover Effect */
-#create-new-content:hover {
-  background-color: #f3f3f3;
+.fun-fact-label {
+  background-color: white;
+  padding: 1.5rem;
+  margin-top: 20px; /* Space above the fun fact label */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /* Yellow shadow */
+  max-width: 400px; /* Match the width of the about container */
+  text-align: center; /* Center-align text */
+}
+
+.about-container h2 {
+  font-size: 1.5rem; /* Slightly smaller font size */
+  font-weight: 600;
+  margin-bottom: 1rem;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+.button-container {
+  display: flex;               /* Enable flexbox layout */
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically */
+  height: calc(100vh - 200px); /* Adjust height to ensure it fits in the viewport without covering other elements */
+  margin: 0;                  /* Remove default margin */
+}
+
+#create-new-content {
+  background-color: #fee440; /* Background color */
+  padding: 1.5rem 2rem;      /* Padding for the button */
+  border-radius: 0.5rem;     /* Rounded corners */
+  font-size: 1rem;           /* Font size */
+  font-weight: bold;         /* Bold text */
+  color: #333;               /* Text color */
+  border: none;              /* No border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /* Shadow */
+  cursor: pointer;           /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background change */
+  
+  #create-new-content:hover {
+    background-color: #f3f3f3; /* Light grey on hover */
+    box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 30px rgba(255, 255, 0, 0.5); /* Glow effect */
+  }
 }
 
 
 /* Paragraph styles */
 .about-container p {
-color: #4A4A4A; /* Dark gray for better readability */
-font-size: 0.875rem; /* Smaller text */
-line-height: 1.5;
-}
-.upload-container {
-background-color: white; /* White background for the upload container */
-padding: 2rem; 
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /*Yellow shadow */
-border-radius: 0.5rem; 
-max-width: 500px; 
-margin: 0 auto; 
-}
-.upload-container h2 {
-text-align: center;
-margin-bottom: 1rem;
-}
-body {
-font-family: Arial, sans-serif;
-}
-.modal {
-display: none; /* Hidden by default */
-position: fixed;
-z-index: 1; /* Sit on top */
-left: 0;
-top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
-overflow: auto; /* Enable scroll if needed */
-background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
-}
-.modal-content {
-background-color: #FEFEFE;
-margin: 15% auto; /* 15% from the top and centered */
-padding: 20px;
-border: 1px solid #888;
-width: 80%; /* Could be more or less, depending on screen size */
-}
-.close {
-color: #aaa;
-float: right;
-font-size: 28px;
-font-weight: bold;
-}
-.close:hover,
-.close:focus {
-color: black;
-text-decoration: none;
-cursor: pointer;
-}
-.hidden {
-display: none; /* Class to hide modal */
+  color: #4A4A4A; /* Dark gray for better readability */
+  font-size: 0.875rem; /* Smaller text */
+  line-height: 1.5;
 }
 
-.fun-fact-label{
-background-color: white;
-padding: 1.5rem;
-margin: 1.5rem;
-border-radius: 0.5rem;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(252, 224, 97, 0.6); /*Yellow shadow */
-max-width: 400px; /* Decreased width for a smaller container */
-text-align: center; /* Center-align text */
+.upload-container {
+  background-color: white; /* White background for the upload container */
+  padding: 2rem; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /* Yellow shadow */
+  border-radius: 0.5rem; 
+  max-width: 500px; 
+  margin: 0 auto; 
 }
+
+.upload-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+}
+
+.modal-content {
+  background-color: #FEFEFE;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none; /* Class to hide modal */
+}
+
 /* Caption container styling */
 .caption-container {
   display: flex;
@@ -180,3 +194,4 @@ text-align: center; /* Center-align text */
   border-radius: 0.5rem;
   text-align: center;
 }
+
