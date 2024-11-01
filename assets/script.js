@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalButton = document.getElementById('create-new-content');
     const modal = document.getElementById('modal');
     const closeModalButton = document.getElementById('close-modal');
+    const submitButton = document.getElementById('submitBtn');
 
     // Open the modal
     openModalButton.addEventListener('click', () => {
@@ -18,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
+    });
+    // Close the modal when the submit button is clicked
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default form submission
+        modal.style.display = 'none';
+        // Optionally, handle form submission logic here
     });
 });
 
