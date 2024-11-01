@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalButton = document.getElementById('create-new-content');
     const modal = document.getElementById('modal');
     const closeModalButton = document.getElementById('close-modal');
-    const imageUpload = document.getElementById('imageUpload');
-    const imagePreview = document.getElementById('imagePreview');
-    const submitButton = document.getElementById('submitBtn'); // Use consistent casing
-
-// test
 
     // Open the modal
     openModalButton.addEventListener('click', () => {
@@ -24,52 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     });
-
-    // Close the modal when the submit button is clicked
-    submitButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-        // Optionally, handle form submission logic here
-    });
-
-    // Handle image upload
-    imageUpload.addEventListener('change', (event) => {
-        const files = event.target.files;
-        imagePreview.innerHTML = ''; // Clear previous previews
-
-        Array.from(files).forEach((file, index) => {
-            const reader = new FileReader();
-        
-            reader.onload = (e) => {
-                const imgContainer = document.createElement('div');
-                imgContainer.classList.add('img-container');
-        
-                // Create the image element and set its source
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                imgContainer.appendChild(img);
-        
-                // Create a description input
-                const descriptionInput = document.createElement('input');
-                descriptionInput.type = 'text';
-        
-                // Event listener to save the description to localStorage
-                descriptionInput.addEventListener('input', () => {
-                    // Save description with a unique key, e.g., 'imageDescription_0'
-                    localStorage.setItem(`imageDescription_${index}`, descriptionInput.value);
-                });
-        
-                // Append the image container to the preview area
-                imagePreview.appendChild(imgContainer);
-            };
-        
-            reader.readAsDataURL(file); // Read the image file as data URL
-        });
-    });
 });
-
-
-    
-
 
 // Event listener for when the file input changes (i.e., when images are uploaded)
 document.getElementById('imageUpload').addEventListener('change', function(event) {
@@ -89,16 +39,12 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         reader.onload = function(e) {
             // Create a new image element
             const img = document.createElement('img');
-
             // Set the source of the image to the Base64 data read from the file
             img.src = e.target.result;
-
             // Add CSS classes to style the image
             img.classList.add('w-full', 'h-auto');
-
             // Append the image to the preview container
             previewContainer.appendChild(img);
-
             // Call the function to save the image data to local storage
             saveImageToLocalStorage(e.target.result);
         };
@@ -111,10 +57,8 @@ document.getElementById('imageUpload').addEventListener('change', function(event
 function saveImageToLocalStorage(imageData) {
     // Retrieve existing images from local storage and parse them as an array
     const existingImages = JSON.parse(localStorage.getItem('images')) || [];
-    
     // Add the new image data to the existing images array
     existingImages.push(imageData);
-    
     // Convert the updated images array back to a string and save it to local storage
     localStorage.setItem('images', JSON.stringify(existingImages));
 }
@@ -138,5 +82,64 @@ function loadImagesFromLocalStorage() {
         previewContainer.appendChild(img);
     });
 }
+
 // Call the function to load images from local storage when the page loads
 window.onload = loadImagesFromLocalStorage;
+// Add an event listener to the submit button for when it is clicked
+document.getElementById('submitBtn').addEventListener('click', function() {
+    // Retrieve the inner HTML of the preview container (this contains the images)
+    const images = document.getElementById('imagePreview').innerHTML;
+
+    // Get the value of the caption input field
+    const caption = document.getElementById('captionInput').value;
+
+    // Placeholder to save the images and caption to the website
+    console.log('Images:', images); // Log the HTML of the images for debugging
+    console.log('Caption:', caption); // Log the caption for debugging
+});
+
+ // Select the input and button elements
+ const submitButton = document.getElementById('submitBtnText');
+ const captionInput = document.getElementById('captionInput');
+ const memoryContainer = document.getElementById('memoryContainer');
+
+ // Load saved memories from localStorage when the page loads
+ window.addEventListener('DOMContentLoaded', loadMemoriesFromLocalStorage);
+
+ // Add event listener to submit button
+ submitButton.addEventListener('click', () => {
+     // Get the value from the input
+     const memoryText = captionInput.value;
+
+     // Create a new memory div if there's text
+     if (memoryText) {
+         addMemory(memoryText);
+
+         // Save the memory to localStorage
+         saveMemoryToLocalStorage(memoryText);
+
+         // Clear the input field after submitting
+         captionInput.value = '';
+     }
+ });
+
+ // Function to create and add a memory element to the DOM
+ function addMemory(text) {
+     const newMemoryDiv = document.createElement('div');
+     newMemoryDiv.classList.add('memory-item');
+     newMemoryDiv.textContent = text;
+     memoryContainer.appendChild(newMemoryDiv);
+ }
+
+ // Save a memory to localStorage
+ function saveMemoryToLocalStorage(text) {
+     const memories = JSON.parse(localStorage.getItem('memories')) || [];
+     memories.push(text);
+     localStorage.setItem('memories', JSON.stringify(memories));
+ }
+
+ // Load memories from localStorage
+ function loadMemoriesFromLocalStorage() {
+     const memories = JSON.parse(localStorage.getItem('memories')) || [];
+     memories.forEach(memory => addMemory(memory));
+ }
