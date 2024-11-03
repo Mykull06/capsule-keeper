@@ -79,29 +79,29 @@ header nav a:hover {
 }
 
 .button-container {
-  display: flex;               /* Enable flexbox layout */
-  justify-content: center;     /* Center horizontally */
-  align-items: center;         /* Center vertically */
-  height: calc(100vh - 200px); /* Adjust height to ensure it fits in the viewport without covering other elements */
-  margin: 0;                  /* Remove default margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Removes any default margin */
+  padding: 20px; /* Adds controlled padding around button */
 }
 
 #create-new-content {
-  background-color: #fee440; /* Background color */
-  padding: 1.5rem 2rem;      /* Padding for the button */
-  border-radius: 0.5rem;     /* Rounded corners */
-  font-size: 1rem;           /* Font size */
-  font-weight: bold;         /* Bold text */
-  color: #333;               /* Text color */
-  border: none;              /* No border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6); /* Shadow */
-  cursor: pointer;           /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth background change */
-  
-  #create-new-content:hover {
-    background-color: #f3f3f3; /* Light grey on hover */
-    box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 30px rgba(255, 255, 0, 0.5); /* Glow effect */
-  }
+  background-color: #fee440;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(198, 90, 210, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#create-new-content:hover {
+  background-color: #f3f3f3;
+  box-shadow: 0 0 15px rgb(255, 255, 255), 0 0 30px rgba(255, 255, 0, 0.5);
 }
 
 
