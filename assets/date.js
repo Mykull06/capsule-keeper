@@ -13,7 +13,7 @@ function getFunFact() {
     }
 
     // URL for Numbers API with date format
-    const apiUrl = `https://numbersapi.com/${month}/${day}/date`;
+    const apiUrl = `http://numbersapi.com/${month}/${day}/date`;
 
     // Getting the fact
     fetch(apiUrl)
