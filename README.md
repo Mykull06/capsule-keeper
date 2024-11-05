@@ -4,7 +4,7 @@ We're creating a virtual time capsule where users can securely store memories, i
 ## Link to Deployed Application
 https://mykull06.github.io/capsule-keeper/
 
-## How-to-Use Guide
+## Screenshot
 ![capsulekeeper](image.png)
 
 ## How-to-Use Guide
