@@ -5,6 +5,9 @@ We're creating a virtual time capsule where users can securely store memories, i
 https://mykull06.github.io/capsule-keeper/
 
 ## How-to-Use Guide
+![capsulekeeper](image.png)
+
+## How-to-Use Guide
 
 * Select Create New button to open a modal. In the modl, select the files you'd like to add. 
 
